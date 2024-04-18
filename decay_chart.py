@@ -60,7 +60,7 @@ class DecayChart:
     def __add_null_headers(self, dataframe: pd.DataFrame):
         absent_headers = [header for header in self._headers.values() if header not in dataframe.columns.values]
         if len(absent_headers) == 0:
-            pass
+            return
         dataframe[absent_headers] = np.NaN
 
     def __change_header_name(self, dataframe: pd.DataFrame):

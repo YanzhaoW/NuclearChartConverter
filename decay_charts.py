@@ -47,12 +47,14 @@ class DecayCharts:
         self._dataframes[filename] = chart.dataframe
 
     def parse_to_json_file(self, filename: str):
+        self.process()
         json_str = self._dataframe.to_json(orient="records")
         if json_str is not None:
             json_obj = json.loads(json_str)
             with open(filename, "w", encoding="utf-8") as output:
                 json.dump(json_obj, fp=output, indent=4)
-        raise ValueError("JSON parsing failed!")
+        else:
+            raise ValueError("JSON parsing failed!")
 
     def print(self):
         print(self._dataframe.to_string(index=False))

@@ -39,5 +39,4 @@ if __name__ == "__main__":
     charts.add_chart(filename="152Eu.csv", is_gamma=True, header_map=eu_152_header_map)
     charts.add_chart(filename="152Eu_ng.csv", is_gamma=False, header_map=eu_152_ng_header_map)
 
-    charts.process()
-    charts.print()
+    charts.parse_to_json_file("result.json")
