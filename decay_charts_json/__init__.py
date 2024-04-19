@@ -1,1 +1,1 @@
-from .charts import DecayCharts
+from .charts import Charts

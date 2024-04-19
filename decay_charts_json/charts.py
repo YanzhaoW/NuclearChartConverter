@@ -23,7 +23,7 @@ required_headers_default = [
 ]
 
 
-class DecayCharts:
+class Charts:
     def __init__(self):
         self._dataframes: dict[str, pd.DataFrame] = {}
         self._dataframe = pd.DataFrame()
@@ -39,13 +39,14 @@ class DecayCharts:
 
     def add_chart(self, filename: str, is_gamma: bool, header_map: dict):
         chart = Chart(filename, is_gamma)
-        chart.headers = self.__create_valid_header_map(header_map)
+        chart.headers_map = self.__create_valid_header_map(header_map)
         chart.parse_csv()
         if chart.dataframe.empty:
             raise ValueError(f"Dataframe in the file {filename} is empty")
         self._dataframes[filename] = chart.dataframe
 
     def parse_to_json_file(self, filename: str):
+        print(f"Writting dataframes to JSON file {filename}.")
         self.process()
         json_str = self._dataframe.to_json(orient="records")
         if json_str is not None:
@@ -54,6 +55,7 @@ class DecayCharts:
                 json.dump(json_obj, fp=output, indent=4)
         else:
             raise ValueError("JSON parsing failed!")
+        print("Dataframes has been written successfully!")
 
     def print(self):
         print(self._dataframe.to_string(index=False))
