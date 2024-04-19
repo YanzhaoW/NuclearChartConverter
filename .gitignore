@@ -1,2 +1,2 @@
 *.json
-__*
+__pycache__

@@ -1,9 +1,8 @@
 import json
-from typing import Dict, List
+from typing import List
 
 import pandas as pd
-
-from decay_chart import DecayChart
+from .chart import Chart
 
 required_headers_default = [
     "energy",
@@ -39,7 +38,7 @@ class DecayCharts:
         self._headers = headers
 
     def add_chart(self, filename: str, is_gamma: bool, header_map: dict):
-        chart = DecayChart(filename, is_gamma)
+        chart = Chart(filename, is_gamma)
         chart.headers = self.__create_valid_header_map(header_map)
         chart.parse_csv()
         if chart.dataframe.empty:

@@ -1,4 +1,4 @@
-from decay_charts import DecayCharts
+from decay_charts_json import DecayCharts
 
 eu_152_header_map = {
     "energy": "energy",
@@ -36,7 +36,7 @@ eu_152_ng_header_map = {
 
 if __name__ == "__main__":
     charts = DecayCharts()
-    charts.add_chart(filename="152Eu.csv", is_gamma=True, header_map=eu_152_header_map)
-    charts.add_chart(filename="152Eu_ng.csv", is_gamma=False, header_map=eu_152_ng_header_map)
+    charts.add_chart(filename="csv/152Eu.csv", is_gamma=True, header_map=eu_152_header_map)
+    charts.add_chart(filename="csv/152Eu_ng.csv", is_gamma=False, header_map=eu_152_ng_header_map)
 
     charts.parse_to_json_file("result.json")

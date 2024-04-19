@@ -4,7 +4,7 @@ import numpy as np
 import pandas as pd
 
 
-class DecayChart:
+class Chart:
     def __init__(self, filepath: str, is_gamma: bool):
         self._filepath = filepath
         self._headers = {}
