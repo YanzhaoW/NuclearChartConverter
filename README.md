@@ -33,7 +33,7 @@ Its keys must be found among the headers in the corresponding csv file.
 > The program automatically trims the unnecessary spaces from the csv headers. Therefore, for headers in the csv files like " energy " and "parent  level ", the keys should be "energy" and "parent level" respectively.
 
 > [!IMPORTANT]
-> Headers in the csv file may not be correct for their values. Please valify the values and use the header they belong to.
+> Headers in the csv file may not be correct for their values. Please verify the values and use the header they belong to.
 
 ### Value
 The value corresponding to each key must be one of the following strings:
